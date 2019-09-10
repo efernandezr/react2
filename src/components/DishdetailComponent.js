@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalBody, 
-    ModalHeader, Form, FormGroup, Input, Label, Col, Row } from 'reactstrap';
+    ModalHeader, Label, Col, Row } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const minLength = (len) => (val) => val && (val.length >= len);
 const maxLength = (len) => (val) => !(val) || (val.length <= len);  
@@ -94,7 +95,7 @@ function RenderDish({dish}){
         if(dish != null){
             return(
                 <Card>
-                    <CardImg width = "100%" src={dish.image} alt={dish.name} />
+                    <CardImg width = "100%" src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle>{dish.name}</CardTitle>
                         <CardText>{dish.description}</CardText>
